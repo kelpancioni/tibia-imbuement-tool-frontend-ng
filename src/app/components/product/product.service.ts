@@ -29,6 +29,10 @@ export class ProductService {
     return this.http.post<Product>(this.baseUrl, product)
   }
 
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.baseUrl)
+  }
+
   getImbuement(): Observable<string[]> {
     return this.http.get<string[]>(this.imbueUrl)
   }
