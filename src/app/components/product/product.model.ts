@@ -1,5 +1,7 @@
 export interface Product {
   id?: number,
   name: string,
-  quantity: number
+  quantity: number,
+  level: string,
+  imbuement: string
 }

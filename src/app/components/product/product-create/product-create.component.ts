@@ -12,24 +12,33 @@ export class ProductCreateComponent implements OnInit {
 
   product: Product = {
     name: '',
-    quantity: null
+    quantity: null,
+    level: '',
+    imbuement: ''
   }
+
+  imbuement: string[]
+  level:string[]
 
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
-    
+    this.productService.getImbuement().subscribe((e) => {
+      this.imbuement = e;
+    })
+    this.productService.getLevel().subscribe((e) =>{
+      this.level = e;
+    })
   }
 
-  createProduct():void {
-
+  createProduct(): void {
     this.productService.create(this.product).subscribe(() => {
       this.productService.showMessage('Produto criado.')
       this.router.navigate(['/products'])
     });
   }
 
-  cancel():void {
+  cancel(): void {
     this.router.navigate(['/products'])
   }
 

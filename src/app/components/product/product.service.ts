@@ -11,6 +11,9 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   baseUrl = "http://localhost:3001/products"
+  imbueUrl = "http://localhost:3001/imbuement"
+  levelUrl = "http://localhost:3001/level"
+
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -25,4 +28,13 @@ export class ProductService {
   create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product)
   }
+
+  getImbuement(): Observable<string[]> {
+    return this.http.get<string[]>(this.imbueUrl)
+  }
+
+  getLevel(): Observable<string[]> {
+    return this.http.get<string[]>(this.levelUrl)
+  }
+  
 }
