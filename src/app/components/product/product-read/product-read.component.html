@@ -1,1 +1,45 @@
-<p>product-read works!</p>
+<div class="mat-elevation-z4">
+  <table mat-table class="" [dataSource]="products">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <!-- Quantity Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let row">{{row.quantity}}</td>
+    </ng-container>
+
+    <!-- Imbuement Column -->
+    <ng-container matColumnDef="imbuement">
+      <th mat-header-cell *matHeaderCellDef>Imbuement</th>
+      <td mat-cell *matCellDef="let row">{{row.imbuement}}</td>
+    </ng-container>
+    
+    <!-- Level Column -->
+    <ng-container matColumnDef="level">
+      <th mat-header-cell *matHeaderCellDef>Level</th>
+      <td mat-cell *matCellDef="let row">{{row.level}}</td>
+    </ng-container>
+    
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let row">
+        <a routerLink="" class="edit">
+          <i class="material-icons">edit</i>
+        </a>
+        <a routerLink="" class="delete">
+          <i class="material-icons">delete</i>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
