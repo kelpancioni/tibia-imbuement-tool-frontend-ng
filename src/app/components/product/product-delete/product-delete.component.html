@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-title>
+    Delete Creature Product
+  </mat-card-title>
+
+  <form>
+
+    <mat-form-field>
+      <input disabled matInput placeholder="Name" [value]="product.name" name="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input disabled matInput placeholder="Quantity" [value]="product.quantity" name="quantity">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select disabled  placeholder="Imbuement" [value]="product.imbuement" name="imbuement">
+        <mat-option [value]="product.imbuement">{{product.imbuement}}</mat-option>
+      </mat-select> 
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select disabled placeholder="Level" [value]="product.level" name="level">
+        <mat-option [value]="product.level">{{product.level}}</mat-option>
+      </mat-select> 
+    </mat-form-field>
+
+  </form>
+
+  <button mat-raised-button (click)="deleteProduct()" color="warn">
+    Delete
+  </button>
+  <button mat-raised-button (click)="cancel()" >
+    Cancel
+  </button>
+</mat-card>
